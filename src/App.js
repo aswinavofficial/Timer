@@ -5,12 +5,24 @@ export default function App() {
 
   const[totalMinutes,setTotalMinutes] = useState(25)
   const[totalSeconds,setTotalSeconds] = useState(0)
-  const[timeLeft,setTimeLeft] = useState(totalMinutes * 60 + totalSeconds)
+  const[timeLeft,setTimeLeft] = useState(totalTime())
   const[timerRunning,setTimerRunning] = useState(false)
+  const[currentTask,setCurrentTask] = useState("#Lets Crack It")
   let interval = useRef(null)
 
   function padZero(time) {
     return time.toString().padStart(2,'0');
+  }
+
+  function totalTime() {
+
+    return totalMinutes * 60 + totalSeconds;
+
+  }
+
+  function taskCompleted() {
+
+    localStorage.setItem("task",currentTask);
   }
 
   function startTimer() {
@@ -18,16 +30,17 @@ export default function App() {
     if(interval.current ==null) {
 
       setTimerRunning(true)
-      setTimeLeft(totalMinutes * 60 + totalSeconds)
+      setTimeLeft(totalTime())
       interval.current = setInterval(()=> {
       setTimeLeft(timeLeft => {
 
         if(timeLeft>= 1)
         return timeLeft - 1;
 
+        taskCompleted()
         setTimerRunning(false)
         clearInterval(interval.current);
-        setTimeLeft(totalMinutes * 60 + totalSeconds);
+        setTimeLeft(totalTime());
         return 0;
       })
     },1000);
@@ -46,7 +59,7 @@ export default function App() {
 
     setTimerRunning(false)
     clearInterval(interval.current);
-    setTimeLeft(totalMinutes * 60 + totalSeconds);
+    setTimeLeft(totalTime());
     interval.current = null;
 
   }
@@ -54,7 +67,14 @@ export default function App() {
   let seconds = Math.floor(timeLeft - minutes*60);
   return (
     <div className="app">
-      <h2>Pomodoro!</h2>
+      {/* <h2>Pomodoro!</h2> */}
+      <div className="task">
+          <input  
+          value={currentTask}
+          onChange ={(e)=> {
+            setCurrentTask(e.currentTarget.value)
+          }}/>
+      </div>
 
       <div className="timer">
       <span contentEditable={!timerRunning} 
@@ -89,6 +109,7 @@ export default function App() {
           </button>
         <button onClick={resetTimer}>Reset</button>
       </div>
+
     </div>
   );
 }

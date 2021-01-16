@@ -33,7 +33,7 @@ h2 {
 .timer {
   color: #1f6e72;
   font-size: 150px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .buttons button {
@@ -59,7 +59,32 @@ h2 {
 }
 
 .buttons button:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 25px;
+}
+
+
+.task {
+
+  outline: none;
+  border: none;
+  font-size: 24px;
+  padding: 5px 10px;
+}
+
+
+.task input{
+
+  background: transparent;
+  color:  #49b2b8;;
+  border: none;
+  font-size: 35px;
+  text-align: center;
+}
+
+.task input:focus {
+  outline: none !important;
+  border:1px solid #1f6e72;
+  box-shadow: 0 0 10px#1f6e72
 }
 
 @media (max-width: 780px) {
