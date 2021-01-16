@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Deploy-Github-Pages
 
 # Controls when the action will run. 
 on:
@@ -24,13 +24,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
+      
+      - name: Installing dependencies
+        run: npm install
+        
       - name: React production build
         run: npm run build
 
-      # Runs a set of commands using the runners shell
       - name: Deploy to gh-pages
-        run: |
-          npm install gh-pages,
-          npm run deploy.
+        run: npm run deploy
