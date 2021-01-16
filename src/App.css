@@ -20,7 +20,7 @@ body {
   align-items: center;
   justify-content: center;
   background: #151618;
-  color: #2c888d;
+  color: #49b2b8;
 }
 
 h2 {
@@ -31,7 +31,7 @@ h2 {
 }
 
 .timer {
-  color: #1f6e72;
+  color: #49b2b8;
   font-size: 150px;
   margin-bottom: 10px;
 }
@@ -47,9 +47,9 @@ h2 {
   border: none;
   font-size: 24px;
   background: transparent;
-  color:  #1f6e72;
+  color:  #49b2b8;
   border-radius: 5px;
-  box-shadow: 0 0 5px #1f6e72;
+  box-shadow: 0 0 5px #49b2b8;
   padding: 15px 30px;
   cursor: pointer;
   transition: 0.3s ease all;
@@ -81,7 +81,7 @@ h2 {
 .task input{
 
   background: transparent;
-  color:  #49b2b8;;
+  color:  #49b2b8;
   border: none;
   font-size: 35px;
   text-align: center;
