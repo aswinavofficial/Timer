@@ -36,6 +36,12 @@ h2 {
   margin-bottom: 10px;
 }
 
+.buttons {
+
+  display: flex;
+  flex-direction: row;  
+}
+
 .buttons button {
   outline: none;
   border: none;
@@ -98,5 +104,25 @@ h2 {
 
   .buttons button {
     font-size: 18px;
+    margin: 10px;
+    flex-grow: 1;
+    width: 100px;
   }
+
+  .buttons {
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0px;
+  }
+
+  .buttons button:not(:last-child) {
+    margin-right: 0px;
+  }
+
+  .buttons button:last-child {
+    margin-right: 0px;
+  }
+  
 }
