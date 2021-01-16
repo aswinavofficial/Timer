@@ -30,6 +30,9 @@ jobs:
         
       - name: React production build
         run: npm run build
+        
+      - name: Listing files
+        run: ls
 
       - name: Deploy to gh-pages
         run: npm run deploy
